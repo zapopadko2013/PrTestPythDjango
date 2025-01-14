@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Авторизация</title>
+</head>
+<body>
+    <h2>Ввод пароля</h2>
+    <form method="POST" action="../postupdatepass/">
+        {% csrf_token %}
+        <input type="hidden" id="name1" name="name1" value="{{ name1 }}" />
+        <p>Телефон:<br> <input name="phone" value="{{ phone }}" /></p>
+        <p>Пароль:<br> <input name="password" value="{{ password }}" /></p>
+        <p>Новый пароль:<br> <input name="newpassword" value="{{ newpassword }}" /></p>
+        <input type="submit" value="Сохранить" />
+        <div>
+            <label id ="textsoob">{{ text }}</label>
+    
+        </div>    
+    </form>
+</body>
+</html>

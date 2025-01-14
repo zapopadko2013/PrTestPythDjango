@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Тестовый пример</title>
+<style>
+td {padding:5px;}
+button{margin: 5px;}
+</style>
+</head>
+<body>
+    <h2>Вход пользователя</h2>
+    <a href="../autorizpass/">Авторизация</a>
+    <form method="POST" action="../profilepost/">
+    <div>
+        <input type="hidden" id="userId" value={{ id }} />
+        <p>
+            Телефон:<br/>
+            <input id="phone" name="phone" type="number" value="{{ phone }}"/>
+        </p>
+        <p>
+            Пароль:<br />
+            <input id="password" name="password" value="{{ password }}" />
+        </p>
+         <p>
+            <button id="saveBtn" name="save">Вход</button>
+            <button id="resetBtn" name="reset">Сбросить</button>
+        </p>
+    </div>
+    <div>
+        <label id ="textsoob">{{ text }}</label>
+
+    </div>
+    <table>
+        
+        <tbody>
+        </tbody>
+    </table>
+    </form>
+    <script>
+         //url="http://127.0.0.1:8000/";
+
+/*
+    function post(path, params, method) {
+    method = method || "post"; // Set method to post by default if not specified.
+   //method = method || "get"; // Set method to post by default if not specified.
+
+
+    var form = document.createElement("form");
+    form.setAttribute("method", method);
+    form.setAttribute("action", path);
+
+    for(var key in params) {
+        if(params.hasOwnProperty(key)) {
+            var hiddenField = document.createElement("input");
+            hiddenField.setAttribute("type", "hidden");
+            hiddenField.setAttribute("name", key);
+            hiddenField.setAttribute("value", params[key]);
+
+            form.appendChild(hiddenField);
+         }
+    }
+
+    document.body.appendChild(form);
+    form.submit();
+}
+  
+
+async function postpassword(phone, password) {
+
+    const response = await fetch("../profilepost/", {
+      method: "POST",
+      headers: { "Accept": "application/json", "Content-Type": "application/json" },
+      body: JSON.stringify({
+          phone: phone,
+          password: password
+      })
+  });
+  if (response.ok === true) {
+
+   // post('profileuserpassw.html', {id: 1,phone: 33,password: 44,name: 44});  
+   response.end(response.text());      
+
+    //return response.text();
+      //const user = await response.json();
+      //document.getElementById("textsoob").textContent=user.text;
+   
+  }
+  else {
+
+      const error = await response.json();
+      console.log(error.error);
+      document.getElementById("textsoob").textContent=error.error;
+  }
+
+}
+
+// сброс данных формы после отправки
+function reset() {
+            document.getElementById("userId").value = ""
+            document.getElementById("phone").value = ""
+            document.getElementById("password").value = "";
+            document.getElementById("textsoob").textContent="";
+        }
+
+    // сброс значений формы
+  document.getElementById("resetBtn").addEventListener("click", () =>  reset());
+  
+  // отправка формы
+  document.getElementById("saveBtn").addEventListener("click", async () => {
+
+    const phone = document.getElementById("phone").value;
+    const password = document.getElementById("password").value;
+    await postpassword(phone, password);
+       
+     
+  });
+*/
+
+    </script>
