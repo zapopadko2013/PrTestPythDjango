@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -81,14 +81,24 @@ DATABASES = {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
+    
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'pythtest',
-        'USER': 'postgres',
-        'PASSWORD': '1',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
+         'ENGINE': os.environ.get('DB_DRIVER', 'django.db.backends.postgresql'),
+         'NAME': os.environ.get('PG_DB', 'pythtest'),
+         'USER': os.environ.get('PG_USER', 'postgres'),
+         'PASSWORD': os.environ.get('PG_PASSWORD', '1'),
+         'HOST': os.environ.get('PG_HOST', '127.0.0.1'),
+         'PORT': os.environ.get('PG_PORT', '5432'),
+     }
+    # 'default': {
+    #      'ENGINE': 'django.db.backends.postgresql',
+    #     #  'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #      'NAME': 'pythtest',
+    #      'USER': 'postgres',
+    #      'PASSWORD': '1',
+    #      'HOST': '127.0.0.1',
+    #      'PORT': '5432',
+    # } 
 }
 
 
